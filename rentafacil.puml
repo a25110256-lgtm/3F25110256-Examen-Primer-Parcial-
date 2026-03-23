@@ -1,0 +1,42 @@
+@startuml
+class Vehiculo {
+  placa : string
+  marca : string
+  modelo : string
+  anio : int
+  precio por dia : double
+}
+class Auto {
+}
+class Moto {
+cilindrada : int
+}
+
+class Camioneta {
+  capacidad de carga : double
+}
+
+Vehiculo <|-- Auto
+Vehiculo <|-- Moto
+Vehiculo <|-- Camioneta
+
+class Cliente {
+  id : int
+  nombre : string
+  dni : string
+  telefono : string
+}
+
+class Alquiler {
+  codigo : int
+  fecha de inicio : string
+  fecha de fin : string
+  costo total : double
+  estado : string
+  calcular costo() : double
+}
+
+Cliente "1" -- "0..3" Alquiler
+Alquiler "1" -- "1.." Vehiculo
+
+@enduml
